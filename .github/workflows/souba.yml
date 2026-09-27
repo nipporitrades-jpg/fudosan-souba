@@ -1,0 +1,46 @@
+# 国交省 不動産情報ライブラリから、相場の表と23区の推移を毎週確かめて取る（個人用）
+# APIキーは Settings → Secrets and variables → Actions の REINFOLIB_API_KEY にだけ置く。このファイルにもリポジトリにも書かない
+name: souba-auto
+
+on:
+  schedule:
+    - cron: '17 17 * * 5'   # 毎週土曜 2:17（日本時間）＝金曜 17:17（UTC）。ちょうどの時刻は混むのでずらしている
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '新しい四半期が無くても全部取り直す'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write          # data/ の結果をこのリポジトリに保存するため
+
+concurrency:
+  group: souba-auto
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: 取得（新しい四半期が出たときだけ全部取る）
+        env:
+          REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
+          FORCE: ${{ inputs.force }}
+        run: python3 reinfolib_souba.py --auto --out data
+
+      - name: 結果を保存（毎週 status.json が変わるので、60日で止まる決まりにもかからない）
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data
+          if git diff --cached --quiet; then
+            echo '変更なし'
+            exit 0
+          fi
+          git commit -m "souba: $(TZ=Asia/Tokyo date +%F)"
+          git push || (git pull --rebase && git push)
