@@ -1,0 +1,44 @@
+{
+ "script": "reinfolib_souba.py v1.3",
+ "last_checked": "2026-09-27T19:43:38+09:00",
+ "ok": true,
+ "error": null,
+ "ran": [
+  "hist",
+  "table"
+ ],
+ "reason": "23区の推移：手動で全部取り直し／相場の表：手動で全部取り直し",
+ "latest": {
+  "S": "2026年第1四半期",
+  "T": "2026年第1四半期"
+ },
+ "table": {
+  "file": "souba_reinfolib_latest.json",
+  "fetched": "2026-09-27",
+  "fetched_at": "2026-09-27T19:49:51+09:00",
+  "records_used": 114120,
+  "requests": 164,
+  "errors": [],
+  "n_errors": 0,
+  "ok": true,
+  "sha256": "e5ce488c37ed55d3b2dc613cc99cee88423162218c77aca41e057f624ff9797b",
+  "bytes": 1691219
+ },
+ "hist": {
+  "file": "souba_reinfolib_hist_latest.json",
+  "fetched": "2026-09-27",
+  "fetched_at": "2026-09-27T20:08:28+09:00",
+  "records_used": 464709,
+  "requests": 483,
+  "errors": [],
+  "n_errors": 0,
+  "ok": true,
+  "sha256": "77f9b2e0db04425124a999ea43542507bf6738edcf5488a5ca52792ae903cc61",
+  "bytes": 170088,
+  "period": "2006年〜"
+ },
+ "note": "APIキーはこのリポジトリのどのファイルにも入っていない（GitHub の Secrets だけ）。値は国交省の公開データを集計したもの",
+ "credit": "このサービスは、国土交通省の不動産情報ライブラリのAPI機能を使用していますが、提供情報の最新性、正確性、完全性等が保証されたものではありません。",
+ "source_url": "https://www.reinfolib.mlit.go.jp/",
+ "license": "公共データ利用規約（PDL1.0）"
+}
