@@ -1,37 +1,40 @@
 {
  "script": "reinfolib_souba.py v1.3",
- "last_checked": "2026-10-24T05:29:08+09:00",
+ "last_checked": "2026-10-31T06:31:38+09:00",
  "ok": true,
  "error": null,
- "ran": [],
- "reason": "新しい四半期なし（取り直さない）",
+ "ran": [
+  "hist",
+  "table"
+ ],
+ "reason": "23区の推移：新しい四半期（成約 2026年第2四半期・取引 2026年第2四半期）／相場の表：新しい四半期（成約 2026年第2四半期・取引 2026年第2四半期）",
  "latest": {
-  "S": "2026年第1四半期",
-  "T": "2026年第1四半期"
+  "S": "2026年第2四半期",
+  "T": "2026年第2四半期"
  },
  "table": {
   "file": "souba_reinfolib_latest.json",
-  "fetched": "2026-09-27",
-  "fetched_at": "2026-09-27T19:49:51+09:00",
-  "records_used": 114120,
+  "fetched": "2026-10-31",
+  "fetched_at": "2026-10-31T06:37:08+09:00",
+  "records_used": 137573,
   "requests": 164,
   "errors": [],
   "n_errors": 0,
   "ok": true,
-  "sha256": "e5ce488c37ed55d3b2dc613cc99cee88423162218c77aca41e057f624ff9797b",
-  "bytes": 1691219
+  "sha256": "91d12ba179f5d3addccc42b11e8a778407865dfc9807631f759e921ac42bfa0d",
+  "bytes": 1824268
  },
  "hist": {
   "file": "souba_reinfolib_hist_latest.json",
-  "fetched": "2026-09-27",
-  "fetched_at": "2026-09-27T20:08:28+09:00",
-  "records_used": 464709,
+  "fetched": "2026-10-31",
+  "fetched_at": "2026-10-31T06:52:43+09:00",
+  "records_used": 475807,
   "requests": 483,
   "errors": [],
   "n_errors": 0,
   "ok": true,
-  "sha256": "77f9b2e0db04425124a999ea43542507bf6738edcf5488a5ca52792ae903cc61",
-  "bytes": 170088,
+  "sha256": "3922781c09e1875417174af5e3f772d4db783296534dd08a669d4268692d7b27",
+  "bytes": 173613,
   "period": "2006年〜"
  },
  "note": "APIキーはこのリポジトリのどのファイルにも入っていない（GitHub の Secrets だけ）。値は国交省の公開データを集計したもの",
